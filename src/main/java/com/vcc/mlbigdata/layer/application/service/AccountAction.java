@@ -1,15 +1,19 @@
 package com.vcc.mlbigdata.layer.application.service;
 
 import com.vcc.mlbigdata.layer.application.domain.model.Account;
+import com.vcc.mlbigdata.layer.presentation.controller.API;
 
 public class AccountAction {
     long accountID;
     double subMoney;
     double addMoney;
-
     Account accountExcute = new Account();
 
-    public void ComeIn(double addMoney){
+    //public void insert(long accountID, String accountName, double availableBalances){}
+
+    //
+
+    public void comeIn(double addMoney){
         if (accountExcute.getSubMoney() < 0) {
             System.out.println("Số tiền nhập không hợp lệ");
         } else {
@@ -17,7 +21,7 @@ public class AccountAction {
         }
     }
 
-    public void ComeOut(double subMoney){
+    public void comeOut(double subMoney){
         if (subMoney < 0) {
             System.out.println("Số tiền nhập không hợp lệ");
         } else if(subMoney >= accountExcute.getAvailableBalances()){
@@ -27,11 +31,11 @@ public class AccountAction {
         }
     }
 
-    public void Mature(){
-        accountExcute.setAvailableBalances() += accountExcute.getAvailableBalances() * accountExcute.getInterestRate();
+    public void mature(){
+//        accountExcute.setAvailableBalances() += accountExcute.getAvailableBalances() * accountExcute.getInterestRate();
     }
 
-    public void TransferMoney(double transferMoney){
+    public void transferMoney(double transferMoney){
         if (transferMoney < 0) {
             System.out.println("Số tiền nhập không hợp lệ");
         }else if(transferMoney > accountExcute.getAvailableBalances()){
@@ -41,10 +45,7 @@ public class AccountAction {
         }
     }
 
-    public void ReceiveMoney(double transferMoney){
+    public void receiveMoney(double transferMoney){
         this.addMoney = accountExcute.getAvailableBalances() + transferMoney;
     }
 }
-
-
- */

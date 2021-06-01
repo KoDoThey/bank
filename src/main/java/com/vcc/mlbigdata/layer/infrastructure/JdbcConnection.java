@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class JdbcConnection {
 
-    public static Connection getJdbcConnection(){
-        final String url = "jdbc:mysql://localhost:3306/bankAccount";
+    public static Connection getJdbcConnection()  {
+        final String url = "jdbc:mysql://localhost:3306/bankaccount";
         final String user = "root";
         final String password = "";
         try {
