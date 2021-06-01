@@ -36,7 +36,7 @@ public class Application {
             System.out.println("Connected MySQL");
         } else System.out.println("Connection failed");
         ResponseRepository response = new ResponseRepository();
-        response.getAccountID(10);
+        response.getAccountID(1);
         System.exit(0);
     }
 

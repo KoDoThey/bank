@@ -11,7 +11,7 @@ public class ResponseRepository {
     static String PASSWORD = "";
 
     public Account getAccountID(long accountID){
-        String selectID = "select accountID from account where accountID = ?";
+        String selectID = "select * from account where accountID = ?";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -28,7 +28,6 @@ public class ResponseRepository {
                 System.out.println(rs.getLong(1));
                 return acc;
             }
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
