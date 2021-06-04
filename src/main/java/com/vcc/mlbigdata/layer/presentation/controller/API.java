@@ -1,12 +1,12 @@
 package com.vcc.mlbigdata.layer.presentation.controller;
 
-import com.vcc.mlbigdata.layer.application.domain.model.Account;
-import com.vcc.mlbigdata.layer.infrastructure.*;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.vcc.mlbigdata.layer.application.service.AccountAction;
+import com.vcc.mlbigdata.layer.infrastructure.ResponseRepository;
+import com.vcc.mlbigdata.layer.infrastructure.Strings;
 import org.json.JSONException;
 
 @Path("/")
@@ -35,12 +35,44 @@ public class API {
     }
 
     @POST
-    @Path("/insert")
+    @Path("/createuser/")
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Response getInsert(@PathParam("accountID") long accountID,
-                              @PathParam("accountName") String accountName,
-                              @PathParam("availableBalances") double availableBalances) throws JSONException{
+    public Response createUser(String jsonParam,
+                               @PathParam("accountID") long accountID,
+                               @PathParam("accountName") String accountName) throws Exception {
+        if (Strings.isNullOrEmptyString(jsonParam)){
+            throw new ClientException("Invalid request format");
+        }
+        try {
+            ResponseRepository response = new ResponseRepository();
+            if (response.getAccountID(accountID) != null){
+                throw new ClientException("Account ID is existed!");
+            }
+
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
 
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

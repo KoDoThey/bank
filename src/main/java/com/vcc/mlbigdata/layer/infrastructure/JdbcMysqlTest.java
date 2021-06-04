@@ -41,10 +41,8 @@ public class JdbcMysqlTest {
 
             stmt.close();
             conn.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return null;
     }
